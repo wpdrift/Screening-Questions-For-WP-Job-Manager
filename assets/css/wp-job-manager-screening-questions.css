@@ -1,0 +1,97 @@
+.hidden {
+    display:none !important;
+}
+
+ul.wpjsq-dropdown-options {
+    list-style: none;
+    display:inline-block;
+}
+
+ul.wpjsq-dropdown-options>li {
+     position: relative;
+    border:none;
+}
+
+#wpjmsq-add-question-repeater-trigger {
+    background: #ccc;
+    padding: 10px 15px;
+    line-height: 30px;
+    border:none;
+    box-shadow:none;
+}
+
+#wpjmsq-add-question-repeater-trigger:hover {
+    background:#666;
+}
+
+ul.wpjsq-dropdown-options>li>ul {
+    position: absolute;
+    top:100%;
+    left:0;
+    width: 100%;
+    margin-left: 0;
+}
+
+.add_screening_question_button_options {
+    list-style: none;
+    background: #eee;
+    padding:10px;
+    display:inline-block;
+}
+
+.add_screening_question_button_options>li>a {
+    color:#333;
+    text-decoration:none;
+    text-decoration: none;
+    line-height: 30px;
+    display:block;
+    text-align: center;
+    border:none;
+    box-shadow:none;
+}
+
+.add_screening_question_button_options>li>a:hover {
+    background:#ccc;
+}
+
+
+#wpjmsq-popup {
+    position: fixed;
+    top:0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background:rgba(0,0,0,0.8);
+    z-index: 10000;
+}
+
+
+#wpjmsq-popup .wpjmsq-modal {
+    background: #fff;
+    width:900px;
+    max-width: 100%;
+    padding:20px;
+    margin:50px auto;
+    min-height: 200px;
+    position: relative;
+}
+
+#wpjmsq-modal-close-btn {
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding:10px;
+    color:red;
+    font-size: 36px;
+    line-height: 20px;
+    background:#ccc;
+}
+
+#wpjmsq-modal-close-btn:hover {
+    background: red;
+    color: #fff;
+}
+
+.wpjmsq-modal-body ul {
+    list-style: none;
+}
