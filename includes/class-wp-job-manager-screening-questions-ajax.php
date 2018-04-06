@@ -1,104 +1,95 @@
 <?php
 
-if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+// Exit if accessed directly
+if ( ! defined( 'ABSPATH' ) ) {
+    exit;
+}
 
 /**
- * WP_Job_Manager_Company_Listings_Ajax class.
+ * WP_Job_Manager_Screening_Questions_Ajax class.
  */
 class WP_Job_Manager_Screening_Questions_Ajax {
 
 	/**
-	 * Constructor
+	 * Constructor.
 	 */
 	public function __construct() {
-		add_action(
-			'wp_ajax_nopriv_wpjmsq_get_suggested_questions_html',
-			array( $this, 'get_questions' )
-		);
-		
-		add_action(
-			'wp_ajax_wpjmsq_get_suggested_questions_html',
-			array( $this, 'get_questions' )
-		);
-		
-		add_action(
-			'wp_ajax_nopriv_wpjmsq_get_add_question_form',
-			array( $this, 'get_add_question_form' )
-		);
-		
-		add_action(
-			'wp_ajax_wpjmsq_get_add_question_form',
-			array( $this, 'get_add_question_form' )
-		);
-	}
-	
-	
-	function get_questions(){
-		global $wpdb;
-		$table_name = $wpdb->prefix . 'sq_questions';
-		$results = $wpdb->get_results("SELECT * FROM {$table_name} WHERE question_type = 'suggested' ORDER BY `ID` DESC");
-		if($results){
-			?>
-				<div class="wpjmsq-modal-heading">
-                <h2><?php echo __('Select Questions','wpjmsq'); ?></h2>
-				</div>
-				<div class="wpjmsq-modal-body">
-					<div class="form">
-                    <ul>
-						<?php foreach($results as $result): ?>
-                        <li>
-                        <label>
-                        	<input type="checkbox" name="suggested_question[]" 
-							value="<?php echo $result->ID; ?>" 
-							data-question="<?php echo $result->question; ?>"
-							/> 
-							<?php echo $result->question; ?>
-						</label>
-						</li>
-						<?php endforeach; ?>
-                    </ul>
-						<button type="button" class="button choose-suggested-questions">
-							<?php echo __('Choose','wpjmsq'); ?>
-						</button>
-                	</div>
-				</div>
-			<?php
-			die();
-		}
-		else{
-		?>
-			<div class="wpjmsq-modal-heading">
-                <h2><?php echo __('There are no suggested questions','wpjmsq'); ?></h2>
-            </div>
-            <div class="wpjmsq-modal-body">
-            </div>
-		<?php
-			die();
-		}
-	}
-	
-	
-	
-	function get_add_question_form(){
-	?>
-				<div class="wpjmsq-modal-heading">
-                <h2><?php echo __('Add New Question','wpjmsq'); ?></h2>
-				</div>
-				<div class="wpjmsq-modal-body">
-					<p>
-						<textarea name="new_question" rows="4" style="display:block;" placeholder="<?php echo 'Type your question here'; ?>"></textarea>
-					</p>
-					<p>
-						<button type="button" class="button create_question_btn">
-							<?php echo __('Add Question','wpjmsq'); ?>
-						</button>
-					</p>
-				</div>
-			<?php
-			die();
+		add_action( 'wp_ajax_nopriv_wpjmsq_get_suggested_questions_html', array( $this, 'get_questions' ) );
+		add_action( 'wp_ajax_wpjmsq_get_suggested_questions_html', array( $this, 'get_questions' ) );
+		add_action( 'wp_ajax_nopriv_wpjmsq_get_add_question_form', array( $this, 'get_add_question_form' ) );
+		add_action( 'wp_ajax_wpjmsq_get_add_question_form', array( $this, 'get_add_question_form' ) );
 	}
 
-	
+	/**
+	 * Gets the questions.
+	 */
+	public function get_questions() {
+		$suggested_questions = wpjmsq_get_suggested_questions();
+
+		if ( $suggested_questions ) {
+			?>
+
+			<div class="wpjmsq-modal-heading">
+				<h3><?php echo esc_html__( 'Select Questions', 'screening-questions-for-wp-job-manager' ); ?></h3>
+			</div>
+
+			<div class="wpjmsq-modal-body">
+				<div class="form">
+					<ul>
+						<?php foreach ( $suggested_questions as $question ): ?>
+							<li>
+								<label>
+									<input type="checkbox" name="suggested_question[]" value="<?php echo $question->ID; ?>" data-question="<?php echo esc_attr( $question->question ); ?>">
+									<?php echo esc_html( $question->question ); ?>
+								</label>
+							</li>
+						<?php endforeach ?>
+					</ul>
+
+					<button type="button" class="button choose-suggested-questions">
+						<?php echo esc_html__( 'Choose', 'screening-questions-for-wp-job-manager' ); ?>
+					</button>
+				</div>
+			</div>
+
+			<?php
+		} else {
+			?>
+
+			<div class="wpjmsq-modal-heading">
+				<p><?php echo esc_html__( 'There are no suggested questions.', 'screening-questions-for-wp-job-manager' ); ?></p>
+			</div>
+
+			<?php
+		}
+
+		wp_die();
+	}
+
+	/**
+	 * Gets the add question form.
+	 */
+	public function get_add_question_form() {
+		?>
+
+		<div class="wpjmsq-modal-heading">
+			<h3><?php echo esc_html__( 'Add New Question', 'screening-questions-for-wp-job-manager' ); ?></h3>
+		</div>
+
+		<div class="wpjmsq-modal-body">
+			<p>
+				<textarea name="new_question" rows="4" placeholder="<?php echo esc_html__( 'Type your question here..', 'screening-questions-for-wp-job-manager' ); ?>"></textarea>
+			</p>
+
+			<button type="button" class="button create_question_btn">
+				<?php echo esc_html__( 'Add Question', 'screening-questions-for-wp-job-manager' ); ?>
+			</button>
+		</div>
+
+		<?php
+		wp_die();
+	}
+
 }
 
 new WP_Job_Manager_Screening_Questions_Ajax();
