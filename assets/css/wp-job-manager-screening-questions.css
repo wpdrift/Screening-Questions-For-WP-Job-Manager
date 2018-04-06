@@ -1,77 +1,80 @@
 .hidden {
-    display:none !important;
+    display: none !important;
 }
 
-ul.wpjsq-dropdown-options {
-    list-style: none;
-    display:inline-block;
+.wpjmsq-new-question-trigger-wrapper {
+    margin: 2em 0;
 }
 
-ul.wpjsq-dropdown-options>li {
-     position: relative;
-    border:none;
-}
-
-#wpjmsq-add-question-repeater-trigger {
-    background: #ccc;
-    padding: 10px 15px;
-    line-height: 30px;
-    border:none;
-    box-shadow:none;
-}
-
-#wpjmsq-add-question-repeater-trigger:hover {
-    background:#666;
-}
-
-ul.wpjsq-dropdown-options>li>ul {
-    position: absolute;
-    top:100%;
-    left:0;
-    width: 100%;
-    margin-left: 0;
+.wpjmsq-add-question-repeater-wrapper {
+    position: relative;
+    display: inline-block;
 }
 
 .add_screening_question_button_options {
-    list-style: none;
+    list-style-type: none;
     background: #eee;
-    padding:10px;
-    display:inline-block;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    margin: 0;
+    padding: 0;
+    width: 100%;
 }
 
-.add_screening_question_button_options>li>a {
-    color:#333;
-    text-decoration:none;
+.add_screening_question_button_options > li > a {
+    color: #333;
     text-decoration: none;
-    line-height: 30px;
-    display:block;
+    line-height: 40px;
+    display: block;
     text-align: center;
-    border:none;
-    box-shadow:none;
+    border: none;
+    box-shadow: none;
 }
 
-.add_screening_question_button_options>li>a:hover {
-    background:#ccc;
+.add_screening_question_button_options > li > a:hover {
+    background: #ccc;
 }
 
+.wpjmsq-job-questions-wrapper .screening-question {
+    display: table;
+    width: 100%;
+}
+
+.wpjmsq-job-questions-wrapper .screening-question .input-cell,
+.wpjmsq-job-questions-wrapper .screening-question .button-cell {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.wpjmsq-job-questions-wrapper .screening-question .input-cell {
+    padding-right: 10px;
+}
+
+.wpjmsq-job-questions-wrapper .screening-question .input-cell .input-text {
+    width: 100%;
+}
+
+.wpjmsq-job-questions-wrapper .screening-question .button-cell {
+    width: 1%;
+}
 
 #wpjmsq-popup {
     position: fixed;
-    top:0;
+    top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background:rgba(0,0,0,0.8);
+    background: rgba(0, 0, 0, 0.8);
     z-index: 10000;
 }
 
-
 #wpjmsq-popup .wpjmsq-modal {
     background: #fff;
-    width:900px;
+    width: 900px;
     max-width: 100%;
-    padding:20px;
-    margin:50px auto;
+    padding: 20px;
+    margin: 50px auto;
     min-height: 200px;
     position: relative;
 }
@@ -80,11 +83,11 @@ ul.wpjsq-dropdown-options>li>ul {
     position: absolute;
     right: 0;
     top: 0;
-    padding:10px;
-    color:red;
+    padding: 10px;
+    color: red;
     font-size: 36px;
     line-height: 20px;
-    background:#ccc;
+    background: #ccc;
 }
 
 #wpjmsq-modal-close-btn:hover {
@@ -93,5 +96,7 @@ ul.wpjsq-dropdown-options>li>ul {
 }
 
 .wpjmsq-modal-body ul {
-    list-style: none;
+    list-style-type: none;
+    margin: 0 0 25px;
+    padding: 0;
 }

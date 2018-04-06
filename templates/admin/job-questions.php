@@ -1,54 +1,41 @@
 <?php
-global $wpdb;
-$screen = get_current_screen();
-$saved_questions = [];
-$table_name = $wpdb->prefix . 'sq_questions';
-$results = $wpdb->get_results("SELECT * FROM {$table_name} WHERE question_type = 'suggested' ORDER BY `ID` DESC");
+$job_id = get_the_ID();
+$job_questions = wpjmsq_get_job_questions( $job_id );
+$job_linked_questions = wpjmsq_get_job_linked_questions( $job_id );
 
-if( 'add' != $screen->action ):
-$id = get_the_ID();
-$saved_questions = get_post_meta($id,'wpjmsq_screening_questions',true);
+if ( $job_questions ) {
+	foreach ( $job_questions as $question ) {
+		$checked = ( $job_linked_questions && in_array( $question->ID, $job_linked_questions ) ) ? ' checked="checked"' : '';
+		?>
 
-$results = $wpdb->get_results("SELECT * FROM {$table_name} WHERE question_type = 'suggested' OR job_id=$id ORDER BY `ID` DESC");
+		<p>
+			<label>
+				<input type="checkbox" name="suggested_question[<?php echo $question->ID; ?>]" value="<?php echo $question->ID; ?>" data-question="<?php echo esc_attr( $question->question ); ?>"<?php echo $checked; ?>>
+				<?php echo esc_html( $question->question ); ?>
+			</label>
+		</p>
 
-endif;
-
-foreach($results as $result):
-       if(in_array($result->ID,$saved_questions)){
-              $selected = 'checked';
-       }else{
-              $selected = '';
-       }
+		<?php
+	}
+}
 ?>
-<p>
-<label>
-    <input 
-           type="checkbox" 
-           name="suggested_question[<?php echo $result->ID; ?>]" 
-           value="<?php echo $result->ID; ?>" 
-           data-question="<?php echo $result->question; ?>" 
-           <?php echo $selected; ?>
-           /> 
-	<?php echo stripslashes_deep($result->question); ?>
-</label> 
-</p>
-<?php
-endforeach;
-?>
+
 <div id="new_question_reapeater_holder"></div>
-<a href="" id="new_question_reapeater_trigger">Add new question</a>
-<script>
-       jQuery(document).ready(function(){
-              jQuery("#new_question_reapeater_trigger").on('click',function(e){
-                     e.preventDefault();
-                     var repeater_holder = jQuery("#new_question_reapeater_holder");
-                     var html = '<p><input type="text" name="new_question[]" class="input-regular" placeholder="New question"/><button class="new_question_reapeater_remove" type="button">&times</button></p>';
-                     repeater_holder.append(html);
-              });
-       });
-       
-       jQuery(document).on('click','.new_question_reapeater_remove',function(e){
-              e.preventDefault();
-              jQuery(this).parents('p').remove();
-       });
+
+<a href="javascript:void(0)" id="new_question_reapeater_trigger"><?php echo esc_html__( 'Add New Question', 'screening-questions-for-wp-job-manager' ); ?></a>
+
+<script type="text/javascript">
+	jQuery(document).ready(function($) {
+		$('#new_question_reapeater_trigger').on('click', function(event) {
+			var $repeater_holder = $('#new_question_reapeater_holder'),
+				html = '<p><input type="text" name="new_question[]" class="input-regular" placeholder="<?php echo esc_attr__( 'New Question', 'screening-questions-for-wp-job-manager' ); ?>"><button class="new_question_reapeater_remove" type="button">&times</button></p>';
+
+			$repeater_holder.append(html);
+		});
+
+		$(document).on('click', '.new_question_reapeater_remove', function(event) {
+			event.preventDefault();
+			$(this).parent('p').remove();
+		});
+	});
 </script>
