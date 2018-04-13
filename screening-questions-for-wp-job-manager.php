@@ -1,6 +1,6 @@
 <?php
 /*
-Plugin Name:  WP Job Manager - Screening Questions
+Plugin Name:  Screening Questions For WP Job Manager
 Plugin URI: https://wpdrift.com/screening-questions-for-wp-job-manager/
 Description: Screening Questions Add-on for WP Job Manager.
 Version: 1.0.0
@@ -98,14 +98,29 @@ class WP_Job_Manager_Screening_Questions {
 	 * Check plugin dependency.
 	 */
 	public function dependency_check() {
+		$required_plugins = array();
 		$required_job_manager_version = '1.22.0';
+		$notice = '';
 
-		if ( ! defined( 'JOB_MANAGER_VERSION' ) ) {
-			$required_plugin = '<a href="https://wordpress.org/plugins/wp-job-manager/" target="_blank">WP Job Manager</a>';
-			?><div class="error"><p><?php printf( esc_html__( 'WP Job Manager - Screening Questions requires you to install %s.', 'screening-questions-for-wp-job-manager' ), $required_plugin ); ?></p></div><?php
-		} elseif ( version_compare( JOB_MANAGER_VERSION, $required_job_manager_version, '<' ) ) {
-			?><div class="error"><p><?php printf( esc_html__( 'WP Job Manager - Screening Questions requires WP Job Manager %s (you are using %s)', 'screening-questions-for-wp-job-manager' ), $required_job_manager_version, JOB_MANAGER_VERSION ); ?></p></div><?php
+		if ( !is_plugin_active( 'wp-job-manager/wp-job-manager.php' ) ) {
+			$required_plugins[] = '<a href="https://wordpress.org/plugins/wp-job-manager/" target="_blank">WP Job Manager</a>';
 		}
+
+		if ( !is_plugin_active( 'wp-job-manager-applications/wp-job-manager-applications.php' ) ) {
+			$required_plugins[] = '<a href="https://wpjobmanager.com/add-ons/applications/" target="_blank">WP Job Manager - Applications</a>';
+		}
+
+		if ( $required_plugins ) {
+			$notice = sprintf( esc_html__( 'Screening Questions For WP Job Manager requires you to install %s.', 'screening-questions-for-wp-job-manager' ), implode( ', ', $required_plugins ) );
+		} elseif ( version_compare( JOB_MANAGER_VERSION, $required_job_manager_version, '<' ) ) {
+			$notice = sprintf( esc_html__( 'Screening Questions For WP Job Manager requires WP Job Manager %s (you are using %s)', 'screening-questions-for-wp-job-manager' ), $required_job_manager_version, JOB_MANAGER_VERSION );
+		}
+
+		if ( ! $notice ) {
+			return;
+		}
+
+		echo '<div class="error"><p>' . $notice . '</p></div>';
 	}
 
 }

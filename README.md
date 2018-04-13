@@ -1,4 +1,4 @@
-# WP Job Manager - Screening Questions #
+# Screening Questions For WP Job Manager #
 **Contributors:** [WPdrift](https://profiles.wordpress.org/wpdrift), [upnrunn](https://profiles.wordpress.org/upnrunn), [Kishores](https://profiles.wordpress.org/kishores), [Mainul Hassan Main](https://profiles.wordpress.org/shamimmoeen)\
 **Tags:** wp-job-manager, wp-job-manager-applications, wp-job-manager-screening-questions\
 **Requires at least:** 4.4\
@@ -21,13 +21,14 @@ Screening Questions extension integrates with WP Job Manager plugin and lets com
 * Suggested questions
 * Application with answers
 
-<a href="https://wpdrift.com/screening-questions-for-wp-job-manager/" target="_blank">Read more about WP Job Manager - Screening Questions</a>.
+<a href="https://wpdrift.com/screening-questions-for-wp-job-manager/" target="_blank">Read more about Screening Questions For WP Job Manager</a>.
 
 ### Requirements ###
 
-WP Job Manager - Screening Questions plugin needs the following plugins to be installed:
+Screening Questions For WP Job Manager plugin needs the following plugins to be installed:
 
 * <a href="https://wordpress.org/plugins/wp-job-manager/" target="_blank">WP Job Manager</a>
+* <a href="https://wpjobmanager.com/add-ons/applications/" target="_blank">WP Job Manager - Applications</a>
 
 ## Installation ##
 
@@ -35,7 +36,7 @@ WP Job Manager - Screening Questions plugin needs the following plugins to be in
 
 Automatic installation is the easiest option as WordPress handles the file transfers itself and you don’t even need to leave your web browser. To do an automatic install, log in to your WordPress admin panel, navigate to the Plugins menu and click Add New.
 
-In the search field type “WP Job Manager - Screening Questions” and click Search Plugins. Once you’ve found the plugin you can view details about it such as the point release, rating, and description. Most importantly, of course, you can install it by clicking Install Now.
+In the search field type “Screening Questions For WP Job Manager” and click Search Plugins. Once you’ve found the plugin you can view details about it such as the point release, rating, and description. Most importantly, of course, you can install it by clicking Install Now.
 
 ### Manual installation ###
 
