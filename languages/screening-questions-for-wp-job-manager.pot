@@ -1,0 +1,169 @@
+# Copyright (C) 2018 WPdrift
+# This file is distributed under the GNU General Public License v3.0.
+msgid ""
+msgstr ""
+"Project-Id-Version: WP Job Manager - Screening Questions 1.0.0\n"
+"Report-Msgid-Bugs-To: "
+"https://wordpress.org/support/plugin/screening-questions-for-wp-job-manager\n"
+"POT-Creation-Date: 2018-04-13 08:02:12+00:00\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2018-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"X-Generator: grunt-wp-i18n1.0.2\n"
+
+#: includes/admin/class-wp-job-manager-screening-question-application-metabox.php:23
+msgid "Answers"
+msgstr ""
+
+#: includes/admin/class-wp-job-manager-screening-question-job-metabox.php:20
+#: includes/admin/class-wp-job-manager-screening-questions-admin-menu.php:24
+#: templates/admin/index.php:11
+msgid "Screening Questions"
+msgstr ""
+
+#: includes/class-wp-job-manager-screening-questions-ajax.php:33
+msgid "Select Questions"
+msgstr ""
+
+#: includes/class-wp-job-manager-screening-questions-ajax.php:50
+msgid "Choose"
+msgstr ""
+
+#: includes/class-wp-job-manager-screening-questions-ajax.php:60
+msgid "There are no suggested questions."
+msgstr ""
+
+#: includes/class-wp-job-manager-screening-questions-ajax.php:76
+#: templates/admin/job-questions.php:25 templates/admin/question-add.php:2
+msgid "Add New Question"
+msgstr ""
+
+#: includes/class-wp-job-manager-screening-questions-ajax.php:81
+msgid "Type your question here.."
+msgstr ""
+
+#: includes/class-wp-job-manager-screening-questions-ajax.php:85
+msgid "Add Question"
+msgstr ""
+
+#: includes/core/class-wp-job-manager-screening-questions-enqueue.php:36
+msgid "Loading..."
+msgstr ""
+
+#: screening-questions-for-wp-job-manager.php:105
+msgid "WP Job Manager - Screening Questions requires you to install %s."
+msgstr ""
+
+#: screening-questions-for-wp-job-manager.php:107
+msgid ""
+"WP Job Manager - Screening Questions requires WP Job Manager %s (you are "
+"using %s)"
+msgstr ""
+
+#: templates/admin/index.php:12
+msgid "Add New"
+msgstr ""
+
+#: templates/admin/index.php:17
+msgid "All Questions"
+msgstr ""
+
+#: templates/admin/index.php:26
+msgid "Question"
+msgstr ""
+
+#: templates/admin/index.php:27
+msgid "Type"
+msgstr ""
+
+#: templates/admin/index.php:38
+msgid "Edit"
+msgstr ""
+
+#: templates/admin/index.php:39 templates/admin/question-edit.php:44
+msgid "Delete"
+msgstr ""
+
+#: templates/admin/job-questions.php:31
+msgid "New Question"
+msgstr ""
+
+#: templates/admin/partials/question-actions.php:9
+msgid "Item was successfully deleted"
+msgstr ""
+
+#: templates/admin/partials/question-actions.php:34
+msgid "Item was successfully updated"
+msgstr ""
+
+#: templates/admin/partials/question-actions.php:36
+msgid "There was an error while updating item"
+msgstr ""
+
+#: templates/admin/partials/question-actions.php:58
+msgid "Item was successfully created"
+msgstr ""
+
+#: templates/admin/partials/question-actions.php:60
+msgid "There was an error while creating question"
+msgstr ""
+
+#: templates/admin/question-add.php:17 templates/admin/question-edit.php:27
+msgid "Enter question here"
+msgstr ""
+
+#: templates/admin/question-add.php:28 templates/admin/question-add.php:34
+#: templates/admin/question-edit.php:38
+msgid "Publish"
+msgstr ""
+
+#: templates/admin/question-edit.php:7
+msgid "Question not found!"
+msgstr ""
+
+#: templates/admin/question-edit.php:12
+msgid "Edit Question"
+msgstr ""
+
+#: templates/admin/question-edit.php:47
+msgid "Update"
+msgstr ""
+
+#: templates/job-apply.php:18
+msgid "Answer goes here"
+msgstr ""
+
+#: templates/post-job.php:35
+msgid "Add Screening Question"
+msgstr ""
+
+#: templates/post-job.php:41
+msgid "Select from suggested"
+msgstr ""
+
+#: templates/post-job.php:46
+msgid "Create my own"
+msgstr ""
+
+#. Plugin Name of the plugin/theme
+msgid "WP Job Manager - Screening Questions"
+msgstr ""
+
+#. Plugin URI of the plugin/theme
+msgid "https://wpdrift.com/screening-questions-for-wp-job-manager/"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid "Screening Questions Add-on for WP Job Manager."
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "WPdrift"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "https://wpdrift.com"
+msgstr ""
