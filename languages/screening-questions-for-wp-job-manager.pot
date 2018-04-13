@@ -2,10 +2,10 @@
 # This file is distributed under the GNU General Public License v3.0.
 msgid ""
 msgstr ""
-"Project-Id-Version: WP Job Manager - Screening Questions 1.0.0\n"
+"Project-Id-Version: Screening Questions For WP Job Manager 1.0.0\n"
 "Report-Msgid-Bugs-To: "
 "https://wordpress.org/support/plugin/screening-questions-for-wp-job-manager\n"
-"POT-Creation-Date: 2018-04-13 08:02:12+00:00\n"
+"POT-Creation-Date: 2018-04-13 09:40:03+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -53,13 +53,13 @@ msgstr ""
 msgid "Loading..."
 msgstr ""
 
-#: screening-questions-for-wp-job-manager.php:105
-msgid "WP Job Manager - Screening Questions requires you to install %s."
+#: screening-questions-for-wp-job-manager.php:114
+msgid "Screening Questions For WP Job Manager requires you to install %s."
 msgstr ""
 
-#: screening-questions-for-wp-job-manager.php:107
+#: screening-questions-for-wp-job-manager.php:116
 msgid ""
-"WP Job Manager - Screening Questions requires WP Job Manager %s (you are "
+"Screening Questions For WP Job Manager requires WP Job Manager %s (you are "
 "using %s)"
 msgstr ""
 
@@ -149,7 +149,7 @@ msgid "Create my own"
 msgstr ""
 
 #. Plugin Name of the plugin/theme
-msgid "WP Job Manager - Screening Questions"
+msgid "Screening Questions For WP Job Manager"
 msgstr ""
 
 #. Plugin URI of the plugin/theme
