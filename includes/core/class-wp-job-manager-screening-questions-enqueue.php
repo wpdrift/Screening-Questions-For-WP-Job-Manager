@@ -22,14 +22,16 @@ class WP_Job_Manager_Screening_Questions_Enqueue {
 	 * Enqueue styles.
 	 */
 	public function enqueue_styles() {
-		wp_enqueue_style( 'wp-job-manager-screening-questions', SCREENING_QUESTIONS_PLUGIN_URL . 'assets/css/wp-job-manager-screening-questions.css' );
+		$suffix = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
+		wp_enqueue_style( 'wp-job-manager-screening-questions', SCREENING_QUESTIONS_PLUGIN_URL . 'assets/css/wp-job-manager-screening-questions' . $suffix . '.css' );
     }
 
     /**
      * Enqueue scripts.
      */
     public function enqueue_scripts() {
-		wp_enqueue_script( 'wp-job-manager-screening-questions', SCREENING_QUESTIONS_PLUGIN_URL . 'assets/js/wp-job-manager-screening-questions.js', array( 'jquery' ), SCREENING_QUESTIONS_VERSION, true );
+    	$suffix = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
+		wp_enqueue_script( 'wp-job-manager-screening-questions', SCREENING_QUESTIONS_PLUGIN_URL . 'assets/js/wp-job-manager-screening-questions' . $suffix . '.js', array( 'jquery' ), SCREENING_QUESTIONS_VERSION, true );
 		wp_localize_script( 'wp-job-manager-screening-questions', 'wpjmsq_vars', array(
 			'loading_text' => esc_html__( 'Loading...', 'screening-questions-for-wp-job-manager' ),
 		) );

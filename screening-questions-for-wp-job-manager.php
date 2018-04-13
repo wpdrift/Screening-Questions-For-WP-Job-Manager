@@ -4,7 +4,7 @@ Plugin Name:  WP Job Manager - Screening Questions
 Plugin URI: https://wpdrift.com/screening-questions-for-wp-job-manager/
 Description: Screening Questions Add-on for WP Job Manager.
 Version: 1.0.0
-Author: WPDrift
+Author: WPdrift
 Author URI: https://wpdrift.com
 Requires at least: 4.4
 Tested up to: 4.9.5
