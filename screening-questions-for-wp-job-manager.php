@@ -46,6 +46,8 @@ class WP_Job_Manager_Screening_Questions {
 
 		if ( is_admin() ) {
 			include_once( SCREENING_QUESTIONS_PLUGIN_DIR . 'includes/admin/class-wp-job-manager-screening-questions-admin-menu.php' );
+			include_once( SCREENING_QUESTIONS_PLUGIN_DIR . 'includes/admin/class-wp-job-manager-screening-questions-list-table.php' );
+			include_once( SCREENING_QUESTIONS_PLUGIN_DIR . 'includes/admin/class-wp-job-manager-screening-questions-list-table-form-handler.php' );
 			include_once( SCREENING_QUESTIONS_PLUGIN_DIR . 'includes/admin/class-wp-job-manager-screening-question-application-metabox.php' );
 			include_once( SCREENING_QUESTIONS_PLUGIN_DIR . 'includes/admin/class-wp-job-manager-screening-question-job-metabox.php' );
 		}

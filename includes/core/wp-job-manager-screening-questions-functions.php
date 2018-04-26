@@ -15,31 +15,6 @@ function load_wpjmsq_view( $file ) {
 }
 
 /**
- * Count total questions.
- */
-function wpjmsq_count_questions() {
-	global $wpdb;
-	$table_name = $wpdb->prefix . 'sq_questions';
-	$total_records = $wpdb->get_results( "SELECT COUNT(ID) as count FROM {$table_name}" );
-	return $total_records;
-}
-
-/**
- * Get paginated questions.
- *
- * @param      int     $start_from  The start from
- * @param      int     $per_page    The per page
- *
- * @return     object
- */
-function wpjmsq_get_paginated_questions( $start_from, $per_page ) {
-	global $wpdb;
-	$table_name = $wpdb->prefix . 'sq_questions';
-	$results = $wpdb->get_results( "SELECT * FROM {$table_name} ORDER BY `ID` DESC LIMIT $start_from, $per_page" );
-	return $results;
-}
-
-/**
  * Get question.
  *
  * @param      int    $id     The identifier
@@ -56,6 +31,20 @@ function wpjmsq_get_question( $id ) {
 	$item = $wpdb->get_row( $wpdb->prepare( "SELECT * FROM $table_name WHERE ID = %d", $id ), ARRAY_A );
 
 	return $item;
+}
+
+/**
+ * Delete question.
+ *
+ * @param      int        $id     The identifier
+ *
+ * @return     int|false
+ */
+function wpjmsq_delete_question( $id ) {
+    global $wpdb;
+    $table_name = $wpdb->prefix . 'sq_questions';
+
+    return $wpdb->delete( $table_name, array( 'ID' => $id ) );
 }
 
 /**
@@ -153,4 +142,114 @@ function wpjmsq_insert_answer( $user_id, $application_id, $question_id, $answer 
 		'question_id'    => $question_id,
 		'answer'         => $answer,
 	) );
+}
+
+/**
+ * Get all question
+ *
+ * @param      array  $args   The arguments
+ *
+ * @return     array
+ */
+function wpjmsq_get_all_question( $args = array() ) {
+    global $wpdb;
+
+    $defaults = array(
+        'number'  => 5,
+        'offset'  => 0,
+        'orderby' => 'ID',
+        'order'   => 'DESC',
+    );
+
+    $args = wp_parse_args( $args, $defaults );
+
+	$query = "SELECT * FROM {$wpdb->prefix}sq_questions";
+
+	if ( isset( $args['s'] ) && ! empty( $args['s'] ) ) {
+		$query .= " WHERE question LIKE '%{$args['s']}%'";
+	}
+
+	$query .= " ORDER BY {$args['orderby']} {$args['order']} LIMIT {$args['offset']}, {$args['number']}";
+
+    $items = $wpdb->get_results( $query );
+
+    return $items;
+}
+
+/**
+ * Fetch all question from database
+ *
+ * @param      array  $args   The arguments
+ *
+ * @return     array
+ */
+function wpjmsq_get_question_count( $args = array() ) {
+    global $wpdb;
+
+    $query = "SELECT COUNT(*) FROM {$wpdb->prefix}sq_questions";
+
+    if ( isset( $args['s'] ) && ! empty( $args['s'] ) ) {
+    	$query .= " WHERE question LIKE '%{$args['s']}%'";
+    }
+
+    return (int) $wpdb->get_var( $query );
+}
+
+/**
+ * Fetch a single question from database
+ *
+ * @param      int    $id
+ *
+ * @return     array
+ */
+function wpjmsq_list_table_get_question( $id = 0 ) {
+    global $wpdb;
+
+    return $wpdb->get_row( $wpdb->prepare( 'SELECT * FROM ' . $wpdb->prefix . 'sq_questions WHERE ID = %d', $id ) );
+}
+
+/**
+ * Insert a new question
+ *
+ * @param      array             $args
+ *
+ * @return     WP_Error|boolean
+ */
+function wpjmsq_list_table_insert_question( $args = array() ) {
+    global $wpdb;
+
+    $defaults = array(
+        'ID'       => null,
+        'question' => '',
+    );
+
+    $args = wp_parse_args( $args, $defaults );
+    $table_name = $wpdb->prefix . 'sq_questions';
+
+    // some basic validation
+    if ( empty( $args['question'] ) ) {
+        return new WP_Error( 'no-question', __( 'No Question provided.', 'screening-questions-for-wp-job-manager' ) );
+    }
+
+    // remove row id to determine if new or update
+    $row_id = (int) $args['ID'];
+    unset( $args['ID'] );
+
+    if ( ! $row_id ) {
+
+        // insert a new
+        if ( $wpdb->insert( $table_name, $args ) ) {
+            return $wpdb->insert_id;
+        }
+
+    } else {
+
+        // do update method here
+        if ( $wpdb->update( $table_name, $args, array( 'ID' => $row_id ) ) ) {
+            return $row_id;
+        }
+
+    }
+
+    return false;
 }

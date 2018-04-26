@@ -34,7 +34,7 @@ class WP_Job_Manager_Screening_Questions_Application_Metabox {
      * Loads view.
      */
     public function add_answers_to_application() {
-        load_wpjmsq_view( 'admin/application-answers' );
+        load_wpjmsq_view( 'admin/meta-box/application-answers' );
     }
 
 }

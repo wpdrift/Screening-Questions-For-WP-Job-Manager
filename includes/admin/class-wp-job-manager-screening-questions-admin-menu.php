@@ -6,40 +6,62 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * WP_Job_Manager_Screening_Questions_Admin class.
+ * Admin Menu
  */
 class WP_Job_Manager_Screening_Questions_Admin {
 
-	/**
-	 * Constructor.
-	 */
-	public function __construct() {
-		add_action( 'admin_menu', 	array( $this, 'add_menu_page' ) );
-	}
+    /**
+     * Kick-in the class
+     */
+    public function __construct() {
+        add_action( 'admin_menu', array( $this, 'admin_menu' ) );
+    }
 
-	/**
-	 * Adds a menu page.
-	 */
-	public function add_menu_page() {
-		add_menu_page( __('Screening Questions','wpjmsq'), __('Screening Questions','wpjmsq'), 'manage_options', 'wp-job-manager-screening-questions', array( $this, 'load_screening_question_admin_view' ) );
-	}
+    /**
+     * Add menu items
+     *
+     * @return void
+     */
+    public function admin_menu() {
 
-	/**
-	 * Loads screening question admin view.
-	 */
-	function load_screening_question_admin_view() {
-		// Handle requests to create/delete questions
-		load_wpjmsq_view( 'admin/partials/question-actions' );
+        /** Top Menu **/
+        add_menu_page( __( 'Screening Questions', 'screening-questions-for-wp-job-manager' ), __( 'Screening Questions', 'screening-questions-for-wp-job-manager' ), 'manage_options', 'wp-job-manager-screening-questions', array( $this, 'plugin_page' ) );
 
-		if ( isset( $_GET['action'] ) && $_GET['action'] === 'add' ) {
-			load_wpjmsq_view( 'admin/question-add' );
-		} elseif ( isset( $_GET['action'] ) && $_GET['action'] === 'edit' ) {
-			load_wpjmsq_view( 'admin/question-edit' );
-		} else {
-			load_wpjmsq_view( 'admin/index' );
-		}
-	}
+        add_submenu_page( 'wp-job-manager-screening-questions', __( 'Screening Questions', 'screening-questions-for-wp-job-manager' ), __( 'Screening Questions', 'screening-questions-for-wp-job-manager' ), 'manage_options', 'wp-job-manager-screening-questions', array( $this, 'plugin_page' ) );
+    }
 
+    /**
+     * Handles the plugin page
+     *
+     * @return void
+     */
+    public function plugin_page() {
+        $action = isset( $_GET['action'] ) ? $_GET['action'] : 'list';
+        $id = isset( $_GET['id'] ) ? intval( $_GET['id'] ) : 0;
+
+        switch ($action) {
+            case 'view':
+
+                $template = SCREENING_QUESTIONS_PLUGIN_DIR . '/templates/admin/list-table/screening-questions-single.php';
+                break;
+
+            case 'edit':
+                $template = SCREENING_QUESTIONS_PLUGIN_DIR . '/templates/admin/list-table/screening-questions-edit.php';
+                break;
+
+            case 'new':
+                $template = SCREENING_QUESTIONS_PLUGIN_DIR . '/templates/admin/list-table/screening-questions-new.php';
+                break;
+
+            default:
+                $template = SCREENING_QUESTIONS_PLUGIN_DIR . '/templates/admin/list-table/screening-questions-list.php';
+                break;
+        }
+
+        if ( file_exists( $template ) ) {
+            include $template;
+        }
+    }
 }
 
 new WP_Job_Manager_Screening_Questions_Admin();

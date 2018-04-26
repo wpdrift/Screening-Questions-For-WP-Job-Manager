@@ -32,7 +32,7 @@ class WP_Job_Manager_Screening_Questions_Job_Metabox {
      * Loads view.
      */
     public function add_questions_to_job() {
-        load_wpjmsq_view( 'admin/job-questions' );
+        load_wpjmsq_view( 'admin/meta-box/job-questions' );
     }
 
     /**
