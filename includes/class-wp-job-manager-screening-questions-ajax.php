@@ -78,7 +78,7 @@ class WP_Job_Manager_Screening_Questions_Ajax {
 
 		<div class="wpjmsq-modal-body">
 			<p>
-				<textarea name="new_question" rows="4" placeholder="<?php echo esc_html__( 'Type your question here..', 'screening-questions-for-wp-job-manager' ); ?>"></textarea>
+				<textarea name="new_question" rows="4" placeholder="<?php echo esc_attr__( 'Type your question here..', 'screening-questions-for-wp-job-manager' ); ?>"></textarea>
 			</p>
 
 			<button type="button" class="button create_question_btn">

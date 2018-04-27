@@ -146,7 +146,11 @@ class WP_Job_Manager_Screening_Questions_List_Table_Form_Handler {
 
             if ( count( $delete_ids ) ) {
                 foreach ( $delete_ids as $id ) {
-                    wpjmsq_delete_question( $id );
+                    $question_id = intval( $id );
+
+                    if ( $question_id > 0 ) {
+                        wpjmsq_delete_question( $question_id );
+                    }
                 }
             }
 

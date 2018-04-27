@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: Screening Questions For WP Job Manager 1.0.0\n"
 "Report-Msgid-Bugs-To: "
 "https://wordpress.org/support/plugin/screening-questions-for-wp-job-manager\n"
-"POT-Creation-Date: 2018-04-26 15:27:24+00:00\n"
+"POT-Creation-Date: 2018-04-27 08:38:06+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -52,6 +52,7 @@ msgstr ""
 #: includes/admin/class-wp-job-manager-screening-questions-list-table.php:68
 #: templates/admin/list-table/screening-questions-edit.php:12
 #: templates/admin/list-table/screening-questions-new.php:10
+#: templates/admin/list-table/screening-questions-single.php:10
 msgid "Question"
 msgstr ""
 
@@ -92,6 +93,7 @@ msgid "There are no suggested questions."
 msgstr ""
 
 #: includes/class-wp-job-manager-screening-questions-ajax.php:76
+#: templates/admin/list-table/screening-questions-new.php:2
 #: templates/admin/meta-box/job-questions.php:25
 msgid "Add New Question"
 msgstr ""
@@ -101,6 +103,7 @@ msgid "Type your question here.."
 msgstr ""
 
 #: includes/class-wp-job-manager-screening-questions-ajax.php:85
+#: templates/admin/list-table/screening-questions-new.php:22
 msgid "Add Question"
 msgstr ""
 
@@ -108,7 +111,7 @@ msgstr ""
 msgid "Loading..."
 msgstr ""
 
-#: includes/core/wp-job-manager-screening-questions-functions.php:231
+#: includes/core/wp-job-manager-screening-questions-functions.php:241
 msgid "No Question provided."
 msgstr ""
 
@@ -123,17 +126,48 @@ msgid ""
 msgstr ""
 
 #: templates/admin/list-table/screening-questions-edit.php:2
-#: templates/admin/list-table/screening-questions-new.php:2
-#: templates/admin/list-table/screening-questions-new.php:22
-msgid "Add New Screening Question"
+msgid "Edit Question"
+msgstr ""
+
+#: templates/admin/list-table/screening-questions-edit.php:15
+#: templates/admin/list-table/screening-questions-new.php:13
+msgid "Enter question here"
 msgstr ""
 
 #: templates/admin/list-table/screening-questions-edit.php:24
-msgid "Update Screening Question"
+msgid "Update Question"
 msgstr ""
 
 #: templates/admin/list-table/screening-questions-list.php:2
 msgid "Add New"
+msgstr ""
+
+#: templates/admin/list-table/screening-questions-list.php:7
+msgid "Screening question deleted successfully!"
+msgstr ""
+
+#: templates/admin/list-table/screening-questions-list.php:12
+msgid "Screening questions deleted successfully!"
+msgstr ""
+
+#: templates/admin/list-table/screening-questions-list.php:17
+msgid "We couldn't delete that Screening question!"
+msgstr ""
+
+#: templates/admin/list-table/screening-questions-list.php:22
+msgid "Screening question added successfully!"
+msgstr ""
+
+#: templates/admin/list-table/screening-questions-list.php:27
+msgid "Screening question updated successfully!"
+msgstr ""
+
+#: templates/admin/list-table/screening-questions-list.php:32
+msgid "Something went wrong."
+msgstr ""
+
+#: templates/admin/list-table/screening-questions-single.php:2
+msgid "View Question"
 msgstr ""
 
 #: templates/admin/meta-box/job-questions.php:31

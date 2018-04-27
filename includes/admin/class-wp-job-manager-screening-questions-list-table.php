@@ -142,7 +142,7 @@ class WP_Job_Manager_Screening_Questions_List_Table extends \WP_List_Table {
         $sortable = $this->get_sortable_columns();
         $this->_column_headers = array( $columns, $hidden, $sortable );
 
-        $per_page = 5;
+        $per_page = wpjmsq_get_questions_per_page_in_list_table();
         $current_page = $this->get_pagenum();
         $offset = ( $current_page -1 ) * $per_page;
         $this->page_status = isset( $_GET['status'] ) ? sanitize_text_field( $_GET['status'] ) : '2';

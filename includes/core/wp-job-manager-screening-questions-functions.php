@@ -145,6 +145,16 @@ function wpjmsq_insert_answer( $user_id, $application_id, $question_id, $answer 
 }
 
 /**
+ * Gets the number of questions to show in the list table.
+ *
+ * @return     int
+ */
+function wpjmsq_get_questions_per_page_in_list_table() {
+    $questions_per_page = intval( apply_filters( 'screening_questions_per_page_in_list_table', 20 ) );
+    return $questions_per_page ? $questions_per_page : 20;
+}
+
+/**
  * Get all question
  *
  * @param      array  $args   The arguments
@@ -155,7 +165,7 @@ function wpjmsq_get_all_question( $args = array() ) {
     global $wpdb;
 
     $defaults = array(
-        'number'  => 5,
+        'number'  => wpjmsq_get_questions_per_page_in_list_table(),
         'offset'  => 0,
         'orderby' => 'ID',
         'order'   => 'DESC',
