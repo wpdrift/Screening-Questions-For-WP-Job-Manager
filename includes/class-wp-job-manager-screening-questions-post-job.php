@@ -37,13 +37,21 @@ class WP_Job_Manager_Screening_Questions_Post_Job {
         if ( isset( $_POST['new_question'] ) ) {
             foreach ( $_POST['new_question'] as $question ) {
                 $question = sanitize_text_field( $question );
-                $all_questions[] = wpjmsq_insert_question( get_current_user_id(), $job_id, $question );
+                $insert_id = wpjmsq_insert_question( get_current_user_id(), $job_id, $question );
+
+                if ( ! is_wp_error( $insert_id ) ) {
+                    $all_questions[] = $insert_id;
+                }
             }
         }
 
         if ( isset( $_POST['suggested_question'] ) ) {
             foreach ( $_POST['suggested_question'] as $key => $value ) {
-                $all_questions[] = $key;
+                $question_id = intval( $key );
+
+                if ( $question_id > 0 ) {
+                    $all_questions[] = $question_id;
+                }
             }
         }
 

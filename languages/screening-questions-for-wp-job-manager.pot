@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: Screening Questions For WP Job Manager 1.0.0\n"
 "Report-Msgid-Bugs-To: "
 "https://wordpress.org/support/plugin/screening-questions-for-wp-job-manager\n"
-"POT-Creation-Date: 2018-04-13 09:40:03+00:00\n"
+"POT-Creation-Date: 2018-04-27 08:38:06+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -19,9 +19,65 @@ msgid "Answers"
 msgstr ""
 
 #: includes/admin/class-wp-job-manager-screening-question-job-metabox.php:20
-#: includes/admin/class-wp-job-manager-screening-questions-admin-menu.php:24
-#: templates/admin/index.php:11
+#: includes/admin/class-wp-job-manager-screening-questions-admin-menu.php:28
+#: includes/admin/class-wp-job-manager-screening-questions-admin-menu.php:30
+#: templates/admin/list-table/screening-questions-list.php:2
 msgid "Screening Questions"
+msgstr ""
+
+#: includes/admin/class-wp-job-manager-screening-questions-list-table-form-handler.php:36
+#: includes/admin/class-wp-job-manager-screening-questions-list-table-form-handler.php:105
+#: includes/admin/class-wp-job-manager-screening-questions-list-table-form-handler.php:137
+msgid "Are you cheating?"
+msgstr ""
+
+#: includes/admin/class-wp-job-manager-screening-questions-list-table-form-handler.php:40
+#: includes/admin/class-wp-job-manager-screening-questions-list-table-form-handler.php:109
+#: includes/admin/class-wp-job-manager-screening-questions-list-table-form-handler.php:141
+msgid "Permission Denied!"
+msgstr ""
+
+#: includes/admin/class-wp-job-manager-screening-questions-list-table-form-handler.php:51
+msgid "Error: Question is required"
+msgstr ""
+
+#: includes/admin/class-wp-job-manager-screening-questions-list-table-form-handler.php:117
+msgid "Question ID is required!"
+msgstr ""
+
+#: includes/admin/class-wp-job-manager-screening-questions-list-table.php:35
+msgid "No screening questions found"
+msgstr ""
+
+#: includes/admin/class-wp-job-manager-screening-questions-list-table.php:68
+#: templates/admin/list-table/screening-questions-edit.php:12
+#: templates/admin/list-table/screening-questions-new.php:10
+#: templates/admin/list-table/screening-questions-single.php:10
+msgid "Question"
+msgstr ""
+
+#: includes/admin/class-wp-job-manager-screening-questions-list-table.php:69
+msgid "Question Type"
+msgstr ""
+
+#: includes/admin/class-wp-job-manager-screening-questions-list-table.php:88
+msgid "Edit this item"
+msgstr ""
+
+#: includes/admin/class-wp-job-manager-screening-questions-list-table.php:88
+msgid "Edit"
+msgstr ""
+
+#: includes/admin/class-wp-job-manager-screening-questions-list-table.php:89
+msgid "Delete this item"
+msgstr ""
+
+#: includes/admin/class-wp-job-manager-screening-questions-list-table.php:89
+msgid "Delete"
+msgstr ""
+
+#: includes/admin/class-wp-job-manager-screening-questions-list-table.php:115
+msgid "Move to Trash"
 msgstr ""
 
 #: includes/class-wp-job-manager-screening-questions-ajax.php:33
@@ -37,7 +93,8 @@ msgid "There are no suggested questions."
 msgstr ""
 
 #: includes/class-wp-job-manager-screening-questions-ajax.php:76
-#: templates/admin/job-questions.php:25 templates/admin/question-add.php:2
+#: templates/admin/list-table/screening-questions-new.php:2
+#: templates/admin/meta-box/job-questions.php:25
 msgid "Add New Question"
 msgstr ""
 
@@ -46,6 +103,7 @@ msgid "Type your question here.."
 msgstr ""
 
 #: includes/class-wp-job-manager-screening-questions-ajax.php:85
+#: templates/admin/list-table/screening-questions-new.php:22
 msgid "Add Question"
 msgstr ""
 
@@ -53,83 +111,67 @@ msgstr ""
 msgid "Loading..."
 msgstr ""
 
-#: screening-questions-for-wp-job-manager.php:114
-msgid "Screening Questions For WP Job Manager requires you to install %s."
+#: includes/core/wp-job-manager-screening-questions-functions.php:241
+msgid "No Question provided."
 msgstr ""
 
 #: screening-questions-for-wp-job-manager.php:116
+msgid "Screening Questions For WP Job Manager requires you to install %s."
+msgstr ""
+
+#: screening-questions-for-wp-job-manager.php:118
 msgid ""
 "Screening Questions For WP Job Manager requires WP Job Manager %s (you are "
 "using %s)"
 msgstr ""
 
-#: templates/admin/index.php:12
-msgid "Add New"
-msgstr ""
-
-#: templates/admin/index.php:17
-msgid "All Questions"
-msgstr ""
-
-#: templates/admin/index.php:26
-msgid "Question"
-msgstr ""
-
-#: templates/admin/index.php:27
-msgid "Type"
-msgstr ""
-
-#: templates/admin/index.php:38
-msgid "Edit"
-msgstr ""
-
-#: templates/admin/index.php:39 templates/admin/question-edit.php:44
-msgid "Delete"
-msgstr ""
-
-#: templates/admin/job-questions.php:31
-msgid "New Question"
-msgstr ""
-
-#: templates/admin/partials/question-actions.php:9
-msgid "Item was successfully deleted"
-msgstr ""
-
-#: templates/admin/partials/question-actions.php:34
-msgid "Item was successfully updated"
-msgstr ""
-
-#: templates/admin/partials/question-actions.php:36
-msgid "There was an error while updating item"
-msgstr ""
-
-#: templates/admin/partials/question-actions.php:58
-msgid "Item was successfully created"
-msgstr ""
-
-#: templates/admin/partials/question-actions.php:60
-msgid "There was an error while creating question"
-msgstr ""
-
-#: templates/admin/question-add.php:17 templates/admin/question-edit.php:27
-msgid "Enter question here"
-msgstr ""
-
-#: templates/admin/question-add.php:28 templates/admin/question-add.php:34
-#: templates/admin/question-edit.php:38
-msgid "Publish"
-msgstr ""
-
-#: templates/admin/question-edit.php:7
-msgid "Question not found!"
-msgstr ""
-
-#: templates/admin/question-edit.php:12
+#: templates/admin/list-table/screening-questions-edit.php:2
 msgid "Edit Question"
 msgstr ""
 
-#: templates/admin/question-edit.php:47
-msgid "Update"
+#: templates/admin/list-table/screening-questions-edit.php:15
+#: templates/admin/list-table/screening-questions-new.php:13
+msgid "Enter question here"
+msgstr ""
+
+#: templates/admin/list-table/screening-questions-edit.php:24
+msgid "Update Question"
+msgstr ""
+
+#: templates/admin/list-table/screening-questions-list.php:2
+msgid "Add New"
+msgstr ""
+
+#: templates/admin/list-table/screening-questions-list.php:7
+msgid "Screening question deleted successfully!"
+msgstr ""
+
+#: templates/admin/list-table/screening-questions-list.php:12
+msgid "Screening questions deleted successfully!"
+msgstr ""
+
+#: templates/admin/list-table/screening-questions-list.php:17
+msgid "We couldn't delete that Screening question!"
+msgstr ""
+
+#: templates/admin/list-table/screening-questions-list.php:22
+msgid "Screening question added successfully!"
+msgstr ""
+
+#: templates/admin/list-table/screening-questions-list.php:27
+msgid "Screening question updated successfully!"
+msgstr ""
+
+#: templates/admin/list-table/screening-questions-list.php:32
+msgid "Something went wrong."
+msgstr ""
+
+#: templates/admin/list-table/screening-questions-single.php:2
+msgid "View Question"
+msgstr ""
+
+#: templates/admin/meta-box/job-questions.php:31
+msgid "New Question"
 msgstr ""
 
 #: templates/job-apply.php:18

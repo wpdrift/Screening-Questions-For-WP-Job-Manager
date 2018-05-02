@@ -32,7 +32,7 @@ class WP_Job_Manager_Screening_Questions_Job_Metabox {
      * Loads view.
      */
     public function add_questions_to_job() {
-        load_wpjmsq_view( 'admin/job-questions' );
+        load_wpjmsq_view( 'admin/meta-box/job-questions' );
     }
 
     /**
@@ -49,7 +49,11 @@ class WP_Job_Manager_Screening_Questions_Job_Metabox {
             if ( isset( $_POST['new_question'] ) ) {
                 foreach ( $_POST['new_question'] as $question ) {
                     $question = sanitize_text_field( $question );
-                    $all_questions[] = wpjmsq_insert_question( get_current_user_id(), $job_id, $question );
+                    $insert_id = wpjmsq_insert_question( get_current_user_id(), $job_id, $question );
+
+                    if ( ! is_wp_error( $insert_id ) ) {
+                        $all_questions[] = $insert_id;
+                    }
                 }
             }
 
