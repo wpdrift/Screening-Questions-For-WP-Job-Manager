@@ -142,15 +142,17 @@ class WP_Job_Manager_Screening_Questions_List_Table_Form_Handler {
             }
 
             $page_url = admin_url( 'admin.php?page=wp-job-manager-screening-questions' );
-            $delete_ids = $_POST['question_id'];
+            $delete_ids = isset( $_POST['question_id'] ) ? $_POST['question_id'] : array( );
 
-            if ( count( $delete_ids ) ) {
-                foreach ( $delete_ids as $id ) {
-                    $question_id = intval( $id );
+            if ( ! $delete_ids ) {
+                return;
+            }
 
-                    if ( $question_id > 0 ) {
-                        wpjmsq_delete_question( $question_id );
-                    }
+            foreach ( $delete_ids as $id ) {
+                $question_id = intval( $id );
+
+                if ( $question_id > 0 ) {
+                    wpjmsq_delete_question( $question_id );
                 }
             }
 
